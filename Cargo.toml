@@ -1,0 +1,7 @@
+[package]
+name = "mpbc-arithmetic-circuits"
+version = "0.1.0"
+authors = ["erhant"]
+edition = "2021"
+
+[dependencies]
