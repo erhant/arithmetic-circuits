@@ -6,7 +6,7 @@ A Rank-1 Constraint System (R1CS) is a set of constraints, where **each constrai
 
 $$
 \begin{align*}
-\sum_{i=1}^{m} a_i \cdot x_i \circ \sum_{i=1}^{m} b_i \cdot x_i &= \sum_{i=1}^{m} c_i \cdot x_i
+\sum_{i=1}^{m} a_i \cdot x_i \times \sum_{i=1}^{m} b_i \cdot x_i &= \sum_{i=1}^{m} c_i \cdot x_i
 \end{align*}
 $$
 

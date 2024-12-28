@@ -32,7 +32,7 @@ The trick of QAP is the following observation: for $m$ variables $\{x_1, x_2, \l
 
 $$
 P(x) =
-\sum_{i=1}^{m} A_i(x) \cdot x_i \circ \sum_{i=1}^{m} B_i(x) \cdot x_i - \sum_{i=1}^{m} C_i(x) \cdot x_i
+\sum_{i=1}^{m} A_i(x) \cdot x_i \times \sum_{i=1}^{m} B_i(x) \cdot x_i - \sum_{i=1}^{m} C_i(x) \cdot x_i
 $$
 
 If $x$ variables were indeed satisfying the R1CS in the first place, then this polynomial $P(x)$ must be divisible by the target polynomial $T(x)$.
@@ -43,7 +43,7 @@ Using a single polynomial, we were able to capture the entire computation of the
 >
 > $$
 > \begin{align*}
-> \sum_{i=1}^{m} a_i \cdot x_i \circ \sum_{i=1}^{m} b_i \cdot x_i - \sum_{i=1}^{m} c_i \cdot x_i
+> \sum_{i=1}^{m} a_i \cdot x_i \times \sum_{i=1}^{m} b_i \cdot x_i - \sum_{i=1}^{m} c_i \cdot x_i
 > \end{align*}
 > $$
 

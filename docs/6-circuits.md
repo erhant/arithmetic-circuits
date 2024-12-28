@@ -43,29 +43,48 @@ Note that these are defined over a field, so they will result in some non-sense 
 
 - **BIT**: $b \times b = b$
 
-Let's write the circuit of an **OR** gate as an example:
+## Multiplexing
 
-```mermaid
-flowchart TD
-    min1["-1"];
-    a1(("_+_")); a2(("_+_")); a3(("_+_")); a4(("_+_"));
-    m1(("x")); m2(("x"));
-    O((" ")); O1((" ")); O2((" "));
+How do we have "control-flow" in circuits, i.e. the thing that corresponds to if-else statements? We can use a multiplexer (MUX) for that. A MUX takes in a control bit and two inputs, and outputs one of the inputs based on the control bit.
 
-    %% b0 or b1
-    b0 --"b0"--> m1; b1 --"b1"--> m1;
-    b0 --"b0"--> a1; b1 --"b1"--> a1;
-    m5 --"b0 * b1"--> m6; min1 --"-1"--> m6;
-    b0 --"b0"--> a3; b1 --"b1"--> a3;
-    a3 --"b0 + b1"--> a4; m6 --"-b0*b1"--> a4;
+Suppose you have two inputs $t$ (for true/1) and $f$ (for false/0), and a control bit $c$. The output $o$ of the multiplexer is given by:
 
+$$
+o = f \times (1 - c) + t \times c
+$$
 
-
-
-```
+Higher multiplexers can be built using these basic ones, grouped together!
 
 ## Comparators
 
-## Multiplexing
+Here is when things start to get interesting. Comparators are circuits that compare two numbers and output a boolean value.
+
+### Zero Check
+
+First we need to check if a number is zero. The trick here is to observe that a number is non-zero if it has an inverse, and it is has an inverse then their multiplication should be 1.
+
+We will get help from the Circom code for this:
+
+```cs
+template IsZero() {
+  signal input in;
+  signal output out;
+
+  signal inv <-- in != 0 ? 1 / in : 0;
+  out <== 1 - (in * inv);
+
+  in * out === 0;
+}
+```
+
+Here, `inv` is a signal that we introduce from outside the circuit (also called a **hint**), but it is constrained in some way. Let us look at our constraints, for input $i$ and output $o$, with inverse shown as $i^{-1}$:
+
+// TODO: !!!
+
+### Equality Check
+
+### Less Than Check & Friends
 
 ## Arrays
+
+For the last part, we will take a little tour over managing arrays in circuits. An array simply stands for a collection of inputs, but the important thing is that the length of the array is fixed & must be known at the time of creating the circuit!
