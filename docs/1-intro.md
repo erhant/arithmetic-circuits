@@ -25,7 +25,7 @@ These gates can take $n$ inputs, in which case we call them $n$-fan-in gates. Fo
 For $n>2$ gates, they can be represented by a combination of $2$-fan-in gates. For example, a $3$-fan-in addition gate can be represented by two $2$-fan-in addition gates:
 
 ```mermaid
-graph TD
+graph LR
     a1(("_+_")); a2(("_+_"));
     A --"a"--> a1
     B --"b"--> a1
