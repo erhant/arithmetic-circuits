@@ -5,3 +5,4 @@ authors = ["erhant"]
 edition = "2021"
 
 [dependencies]
+lambdaworks-math = "0.11.0"
