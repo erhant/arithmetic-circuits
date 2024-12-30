@@ -11,7 +11,6 @@ QAP(R) = \{
   \{
     A_i, B_i, C_i \in \mathbb{F}[x]
   \}_{j=1}^{m}
-
 \}
 \end{align*}
 $$

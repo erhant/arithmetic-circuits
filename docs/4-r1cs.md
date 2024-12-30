@@ -77,28 +77,46 @@ In R1CS we disallowed more than one multiplication in a single constraint, but w
 
 This is a Rank-1 Constraint System! Let's write this in more clear terms to see exactly how. We have 4 variables in total: $\{x, w_1, w_2, w_3\}$, and we have 3 constraints. For constant terms, we need an extra constant term "1" as well. The resulting matrix-vector multiplication is as follows:
 
+<!-- the new-lines in vectors are important, GitHub markdown viewer needs them -->
+
 $$
 \begin{align*}
 \begin{bmatrix}
 0 & 1 & 0 & 0 & 0 \\
 0 & 0 & 1 & 0 & 0 \\
--20 & 1 & 0 & 1 & 0 \\
-\end{bmatrix}
-\begin{bmatrix} 1 \\ x \\ w_1 \\ w_2 \\ w_3 \\ \end{bmatrix}
-\circ
+-20 & 1 & 0 & 1 & 0
+\end{bmatrix} .
+\begin{bmatrix}
+1 \\
+x \\
+w_1 \\
+w_2 \\
+w_3
+\end{bmatrix} \circ
 \begin{bmatrix}
 0 & 1 & 0 & 0 & 0 \\
 0 & 1 & 0 & 0 & 0 \\
-0 & 0 & 0 & 0 & 0 \\
-\end{bmatrix}
-\begin{bmatrix} 1 \\ x \\ w_1 \\ w_2 \\ w_3 \\ \end{bmatrix}
-=
+0 & 0 & 0 & 0 & 0
+\end{bmatrix} .
+\begin{bmatrix}
+1 \\
+x \\
+w_1 \\
+w_2 \\
+w_3
+\end{bmatrix} =
 \begin{bmatrix}
 0 & 0 & 1 & 0 & 0 \\
 0 & 0 & 0 & 1 & 0 \\
-0 & 0 & 0 & 0 & 1 \\
+0 & 0 & 0 & 0 & 1
+\end{bmatrix} .
+\begin{bmatrix}
+1 \\
+x \\
+w_1 \\
+w_2 \\
+w_3
 \end{bmatrix}
-\begin{bmatrix} 1 \\ x \\ w_1 \\ w_2 \\ w_3 \\ \end{bmatrix}
 \end{align*}
 $$
 
