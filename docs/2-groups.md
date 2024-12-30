@@ -93,4 +93,4 @@ If the field has a finite number of elements, it is called a **finite field**.
 - The ring of integers modulo $p$, denoted as $\mathbb{Z}_p$, where $p$ is a prime number, is a finite field.
 - We can show the example above as $\mathbb{F}_p$ as well, or $\text{GF}(p)$ sometimes for "Galois Field".
 
-[➡️ NEXT SECTION](./3-arithmetization.md)
+[➡️ NEXT SECTION](./3-usage.md)

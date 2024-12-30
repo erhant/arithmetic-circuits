@@ -6,7 +6,7 @@ This repository contains the material for the event [ModaPalas Blackboard | Cryp
 
 1. [Introduction](./docs/1-ontro.md)
 2. [Groups](./docs/2-groups.md)
-3. [Usage in Zero Knowledge Cryptography](./docs/3-usage-in-zk.md)
+3. [Usage in Zero Knowledge Cryptography](./docs/3-usage.md)
 4. [Rank-1 Constraint Systems](./docs/4-r1cs.md)
 5. [Quadratic Arithmetic Programs](./docs/5-qap.md)
 6. [Designing Circuits](./docs/6-circuits.md)
@@ -18,3 +18,4 @@ This repository contains the material for the event [ModaPalas Blackboard | Cryp
 - [Vitalik Buterin - QAP: Zero-to-Hero](https://medium.com/@VitalikButerin/quadratic-arithmetic-programs-from-zero-to-hero-f6d558cea649)
 - [RareSkills - R1CS](https://www.rareskills.io/post/rank-1-constraint-system)
 - [erhant - notes from ZKP MOOC Lecture 3: Programming ZKPs](https://crypto.erhant.me/zklearning/programming-zkps.html)
+- [Risen Crypto - R1CS and QAP](https://risencrypto.github.io/R1CSQAP/)

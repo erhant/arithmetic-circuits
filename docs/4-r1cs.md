@@ -34,6 +34,8 @@ $$
 x^3 + x + 5 = 35
 $$
 
+With an arithmetic circuit of this equation, we can prove that we know the solution $x=3$ without telling what $x$ is.
+
 We don't really have an "equals" gate in our circuits, we said we only have addition and multiplication. Well, what we instead do is to rewrite the equation as:
 
 $$
@@ -46,7 +48,7 @@ This can be represented as an arithmetic circuit:
 
 ```mermaid
 flowchart LR
-  a1(("_+_")); a2(("_+_"));
+  a1(("_+_")); a2(("_+_")); a3(("_+_"))
   m1(("x")); m2(("x"));
   O((" "));
 
@@ -54,7 +56,9 @@ flowchart LR
   X -."x".-> m2; m1 --"x^2"--> m2
   X -."x".-> a1; m2 --"x^3"--> a1
   a1 --"x^3+x"--> a2; 5 -."5".-> a2
-  35["-35"] -."-35".-> O; a2 --"x^3+x+5"--> O;
+  35["-35"] -."-35".-> a3; a2 --"x^3+x+5"--> a3;
+  a3 --"x^3+x+5-35"--> O
+
 ```
 
 Let us write each "gate" and capture their outputs in extra variables $w_i$:
