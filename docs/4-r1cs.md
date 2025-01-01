@@ -69,53 +69,50 @@ Let us write each "gate" and capture their outputs in extra variables $w_i$:
 - $w_4 = w_3 + 5$
 - $w_5 = w_4 - 35$
 
-In R1CS we disallowed more than one multiplication in a single constraint, but with addition we have more freedom, so we can decrease the number of constraints here by combining some of them:
+In R1CS we disallowed more than one multiplication in a single constraint, but with addition we have more freedom, so we can decrease the number of constraints here by combining some of them, and with a slight bit of rearrangement:
 
 - $x \times x = w_1$
 - $w_1 \times x = w_2$
-- $w_2 + x + 5 - 35 = w_3$
+- $w_2 + x + 5 = 35$
 
-This is a Rank-1 Constraint System! Let's write this in more clear terms to see exactly how. We have 4 variables in total: $\{x, w_1, w_2, w_3\}$, and we have 3 constraints. For constant terms, we need an extra constant term "1" as well. The resulting matrix-vector multiplication is as follows:
+This is a Rank-1 Constraint System! Let's write this in more clear terms to see exactly how. We have 3 variables in total along with a constant: $\{1, x, w_1, w_2\}$, and we have 3 constraints. The resulting matrix-vector multiplication is as follows:
 
 <!-- the new-lines in vectors are important, GitHub markdown viewer needs them -->
 
 $$
 \begin{align*}
 \begin{bmatrix}
-0 & 1 & 0 & 0 & 0 \\
-0 & 0 & 1 & 0 & 0 \\
--20 & 1 & 0 & 1 & 0
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+5 & 1 & 0 & 1
 \end{bmatrix} .
 \begin{bmatrix}
 1 \\
 x \\
 w_1 \\
-w_2 \\
-w_3
+w_2
 \end{bmatrix} \circ
 \begin{bmatrix}
-0 & 1 & 0 & 0 & 0 \\
-0 & 1 & 0 & 0 & 0 \\
-0 & 0 & 0 & 0 & 0
+0 & 1 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 0
 \end{bmatrix} .
 \begin{bmatrix}
 1 \\
 x \\
 w_1 \\
-w_2 \\
-w_3
+w_2
 \end{bmatrix} =
 \begin{bmatrix}
-0 & 0 & 1 & 0 & 0 \\
-0 & 0 & 0 & 1 & 0 \\
-0 & 0 & 0 & 0 & 1
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1 \\
+35 & 0 & 0 & 0
 \end{bmatrix} .
 \begin{bmatrix}
 1 \\
 x \\
 w_1 \\
-w_2 \\
-w_3
+w_2
 \end{bmatrix}
 \end{align*}
 $$
