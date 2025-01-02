@@ -6,3 +6,5 @@ pub use qap::QAP;
 
 mod utils;
 pub use utils::*;
+
+pub mod circuits;

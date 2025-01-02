@@ -12,16 +12,12 @@ pub fn dot<F: IsField>(a: &[FieldElement<F>], b: &[FieldElement<F>]) -> FieldEle
     a.iter().zip(b.iter()).map(|(x, y)| x * y).sum()
 }
 
-/// Pretty-prints a polynomial
+/// Pretty-prints a polynomial.
 pub fn poly_print<F: IsPrimeField>(poly: &Polynomial<FieldElement<F>>) -> String {
-    let coeff_decimals = poly
+    let result = poly
         .coefficients()
         .iter()
-        .map(|coeff| format!("{}", coeff.representative()))
-        .collect::<Vec<_>>();
-
-    let result = coeff_decimals
-        .iter()
+        .map(|coeff| coeff.representative().to_string())
         .enumerate()
         .rev()
         .map(|(i, coeff)| match (i, coeff.as_str()) {

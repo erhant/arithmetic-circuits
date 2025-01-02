@@ -2,7 +2,7 @@
 
 This repository contains the material for the event [ModaPalas Blackboard | Cryptography II](https://lu.ma/c6wrtj5b?tk=dJKwGa) lecture "Arithmetic Circuits" by [erhant](https://github.com/erhant).
 
-## Contents
+We have lecture notes as follows:
 
 1. [Introduction](./docs/1-ontro.md)
 2. [Groups](./docs/2-groups.md)
@@ -10,6 +10,12 @@ This repository contains the material for the event [ModaPalas Blackboard | Cryp
 4. [Rank-1 Constraint Systems](./docs/4-r1cs.md)
 5. [Quadratic Arithmetic Programs](./docs/5-qap.md)
 6. [Designing Circuits](./docs/6-circuits.md)
+
+We also have some pieces of code:
+
+- [R1CS](./src/r1cs.rs): a simple implementation of Rank-1 Constraint System.
+- [QAP](./src/qap.rs): a simple implementation of Quadratic Arithmetic Program, connected to the R1CS implementation.
+- [Circuits](./src/circuits.rs): a "wire" implementation and some circuit examples over it.
 
 ## See Also
 
