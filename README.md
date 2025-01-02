@@ -1,5 +1,9 @@
 # ModaPalas Blackboard | Cryptography II: Arithmetic Circuits
 
+<a href="./.github/workflows/test.yml" target="_blank">
+  <img alt="Workflow: Tests" src="https://github.com/erhant/arithmetic-circuits/actions/workflows/tests.yml/badge.svg">
+</a>
+
 This repository contains the material for the event [ModaPalas Blackboard | Cryptography II](https://lu.ma/c6wrtj5b?tk=dJKwGa) lecture "Arithmetic Circuits" by [erhant](https://github.com/erhant).
 
 ## Lecture Notes
