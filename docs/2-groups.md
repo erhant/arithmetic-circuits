@@ -6,7 +6,7 @@ To understand what type of numbers flow within the wires of our arithmetic circu
 >
 > Our numbers are elements of a finite field, which is a set equipped with two binary operations, addition and multiplication, that satisfy certain axioms.
 >
-> You can think of numbers $\{0, 1, 2, \ldots, p-1\}$ modulo some prime $p$ where addition and multiplication are done modulo $p$.
+> You can think of numbers $\lbrace 0, 1, 2, \ldots, p-1 \rbrace$ modulo some prime $p$ where addition and multiplication are done modulo $p$.
 >
 > All numbers except $0$ have a multiplicative inverse, i.e., for every number $a \neq 0$, there exists a number $b$ such that $a \times b = 1$.
 

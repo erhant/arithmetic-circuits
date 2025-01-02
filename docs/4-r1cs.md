@@ -75,7 +75,7 @@ In R1CS we disallowed more than one multiplication in a single constraint, but w
 - $w_1 \times x = w_2$
 - $w_2 + x + 5 = 35$
 
-This is a Rank-1 Constraint System! Let's write this in more clear terms to see exactly how. We have 3 variables in total along with a constant: $\{1, x, w_1, w_2\}$, and we have 3 constraints. The resulting matrix-vector multiplication is as follows:
+This is a Rank-1 Constraint System! Let's write this in more clear terms to see exactly how. We have 3 variables in total along with a constant: $\lbrace 1, x, w_1, w_2 \rbrace$, and we have 3 constraints. The resulting matrix-vector multiplication is as follows:
 
 <!-- the new-lines in vectors are important, GitHub markdown viewer needs them -->
 
