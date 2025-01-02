@@ -2,6 +2,8 @@
 
 This repository contains the material for the event [ModaPalas Blackboard | Cryptography II](https://lu.ma/c6wrtj5b?tk=dJKwGa) lecture "Arithmetic Circuits" by [erhant](https://github.com/erhant).
 
+## Lecture Notes
+
 We have lecture notes as follows:
 
 1. [Introduction](./docs/1-ontro.md)
@@ -10,6 +12,8 @@ We have lecture notes as follows:
 4. [Rank-1 Constraint Systems](./docs/4-r1cs.md)
 5. [Quadratic Arithmetic Programs](./docs/5-qap.md)
 6. [Designing Circuits](./docs/6-circuits.md)
+
+## Implementations
 
 We also have some pieces of code:
 
@@ -22,6 +26,8 @@ You can run some tests and see the results by running:
 ```sh
 cargo test -- --show-output
 ```
+
+In particular, you can design circuits with the existing gates (see [this example](./tests/circuits_test.rs)) and then print a wire that you have to see its gates, everything is composd of `+` and `*` gates only!
 
 ## See Also
 
