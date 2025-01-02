@@ -5,7 +5,7 @@ use lambdaworks_math::field::{
 
 #[derive(Clone, Debug)]
 pub struct Wire<F: IsField> {
-    label: String,
+    pub label: String,
     pub value: FieldElement<F>,
 }
 
@@ -14,6 +14,13 @@ impl<F: IsPrimeField> Wire<F> {
         Self {
             label: value.representative().to_string(),
             value,
+        }
+    }
+
+    pub fn new(value: impl Into<FieldElement<F>>, label: String) -> Self {
+        Self {
+            label,
+            value: value.into(),
         }
     }
 
@@ -30,21 +37,6 @@ impl<F: IsPrimeField> Wire<F> {
     #[inline]
     pub fn zero() -> Self {
         Self::constant(FieldElement::<F>::zero())
-    }
-}
-
-impl<F: IsPrimeField> Wire<F> {
-    pub fn new(value: FieldElement<F>) -> Self {
-        Self {
-            label: "TODO:".to_string(),
-            value,
-        }
-    }
-}
-
-impl<F: IsPrimeField> From<u64> for Wire<F> {
-    fn from(value: u64) -> Self {
-        Self::constant(FieldElement::<F>::from(value))
     }
 }
 
@@ -85,7 +77,7 @@ impl<F: IsField> std::ops::Mul<Wire<F>> for Wire<F> {
     type Output = Wire<F>;
 
     fn mul(self, other: Wire<F>) -> Wire<F> {
-        &self + &other
+        &self * &other
     }
 }
 

@@ -17,6 +17,12 @@ We also have some pieces of code:
 - [QAP](./src/qap.rs): a simple implementation of Quadratic Arithmetic Program, connected to the R1CS implementation.
 - [Circuits](./src/circuits.rs): a "wire" implementation and some circuit examples over it.
 
+You can run some tests and see the results by running:
+
+```sh
+cargo test -- --show-output
+```
+
 ## See Also
 
 - [Ying Tong Lai - Modern ZK Cryptography: Lecture 7 (MIT IAP 2023)](https://assets.super.so/9c1ce0ba-bad4-4680-8c65-3a46532bf44a/files/e11309fb-7356-42ad-9c78-565341abd80d.pdf)

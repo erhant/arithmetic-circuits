@@ -22,8 +22,8 @@ mod tests {
         let one = Wire::<F>::one();
         let zero = Wire::<F>::zero();
 
-        let t = Wire::<F>::from(4);
-        let f = Wire::<F>::from(8);
+        let t = Wire::<F>::new(4, "t".to_string());
+        let f = Wire::<F>::new(8, "f".to_string());
 
         assert_eq!(if_else(&zero, &t, &f), f);
         assert_eq!(if_else(&one, &t, &f), t);

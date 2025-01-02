@@ -68,16 +68,24 @@ fn test_main() {
         "target poly evaluation is not zero"
     );
 
-    println!("A:");
-    for (i, a_i) in qap.a.iter().enumerate() {
-        println!("\tA_{}(x) = {}", i, poly_print(a_i));
-        for xs_i in qap.xs.iter() {
-            print!(
-                "\tA_{}({}) = {}",
-                i,
-                xs_i.representative(),
-                a_i.evaluate(xs_i).representative()
-            );
+    for (label, polys) in [("A", &qap.a), ("B", &qap.b), ("C", &qap.c)] {
+        println!("{} interpolations:", label);
+        for (i, p) in polys.iter().enumerate() {
+            println!("\t{}_{}(x) = {}", label, i, poly_print(p));
+        }
+
+        println!("{} evaluations:", label);
+        for (i, p) in polys.iter().enumerate() {
+            for xs_i in qap.xs.iter() {
+                print!(
+                    "\t{}_{}({}) = {}",
+                    label,
+                    i,
+                    xs_i.representative(),
+                    p.evaluate(xs_i).representative()
+                );
+            }
+            println!("");
         }
         println!("");
     }

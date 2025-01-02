@@ -7,7 +7,7 @@ pub fn is_zero<F: IsPrimeField>(a: &Wire<F>) -> Wire<F> {
     let inv = if a.value == FieldElement::<F>::zero() {
         Wire::<F>::zero()
     } else {
-        Wire::<F>::new(a.value.inv().unwrap())
+        Wire::<F>::new(a.value.inv().unwrap(), format!("{}_neg", a.label))
     };
 
     let out = Wire::<F>::one() - (a * &inv);
@@ -40,8 +40,8 @@ mod tests {
     fn test_is_equal() {
         let one = Wire::<F>::one();
         let zero = Wire::<F>::zero();
-        let a = Wire::<F>::from(4);
-        let b = Wire::<F>::from(5);
+        let a = Wire::<F>::new(4, "a".to_string());
+        let b = Wire::<F>::new(5, "b".to_string());
 
         assert_eq!(is_equal(&a, &b), zero);
         assert_eq!(is_equal(&a, &a), one);
