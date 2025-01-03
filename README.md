@@ -10,7 +10,7 @@ This repository contains the material for the event [ModaPalas Blackboard | Cryp
 
 We have lecture notes as follows:
 
-1. [Introduction](./docs/1-ontro.md)
+1. [Introduction](./docs/1-intro.md)
 2. [Groups](./docs/2-groups.md)
 3. [Usage in Zero Knowledge Cryptography](./docs/3-usage.md)
 4. [Rank-1 Constraint Systems](./docs/4-r1cs.md)
