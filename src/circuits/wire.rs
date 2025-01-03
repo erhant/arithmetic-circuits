@@ -3,6 +3,20 @@ use lambdaworks_math::field::{
     traits::{IsField, IsPrimeField},
 };
 
+// TODO: we should add a `Context` ref field here that handles
+// wire namings so that there are no collisions etc.
+
+/// A circuit "wire" that holds a value and a label.
+///
+/// It has addition, multiplication, subtraction, and negation operations overloaded
+/// so that the label is updated to indicate the operation w.r.t addition gates and
+/// multiplication gates.
+///
+/// You can create constant wires (which are labeled by numbers) or named wires
+/// with a label that you provide.
+///
+/// You can use `u64` values while creating constants, or even wires, which are implement
+/// `Into` to become a field element in the corresponding field.
 #[derive(Clone, Debug)]
 pub struct Wire<F: IsField> {
     pub label: String,
@@ -10,33 +24,34 @@ pub struct Wire<F: IsField> {
 }
 
 impl<F: IsPrimeField> Wire<F> {
-    pub fn constant(value: FieldElement<F>) -> Self {
+    pub fn constant(value: impl Into<FieldElement<F>>) -> Self {
+        let value = value.into();
         Self {
             label: value.representative().to_string(),
             value,
         }
     }
 
-    pub fn new(value: impl Into<FieldElement<F>>, label: String) -> Self {
+    pub fn new(value: impl Into<FieldElement<F>>, label: impl ToString) -> Self {
         Self {
-            label,
+            label: label.to_string(),
             value: value.into(),
         }
     }
 
-    #[inline]
+    #[inline(always)]
     pub fn one() -> Self {
-        Self::constant(FieldElement::<F>::one())
+        Self::constant(1)
     }
 
-    #[inline]
+    #[inline(always)]
     pub fn neg_one() -> Self {
         Self::constant(-FieldElement::<F>::one())
     }
 
-    #[inline]
+    #[inline(always)]
     pub fn zero() -> Self {
-        Self::constant(FieldElement::<F>::zero())
+        Self::constant(0)
     }
 }
 
@@ -47,12 +62,6 @@ impl<F: IsField> PartialEq for Wire<F> {
 }
 
 impl<F: IsField> Eq for &Wire<F> {}
-
-impl<F: IsPrimeField> std::fmt::Display for Wire<F> {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{}: {}", self.label, self.value.representative())
-    }
-}
 
 impl<F: IsField> std::ops::Add<Wire<F>> for Wire<F> {
     type Output = Wire<F>;
@@ -121,5 +130,11 @@ impl<'a, F: IsPrimeField> std::ops::Neg for &'a Wire<F> {
 
     fn neg(self) -> Wire<F> {
         &Wire::<F>::neg_one() * self
+    }
+}
+
+impl<F: IsPrimeField> From<u64> for Wire<F> {
+    fn from(value: u64) -> Self {
+        Wire::constant(value)
     }
 }

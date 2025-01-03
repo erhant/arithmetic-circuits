@@ -78,7 +78,7 @@ P(x) = 82*x^4 + 81*x^3 + 83*x^2 + 88*x + 54
 P(x) / T(x) = 82*x + 88
 ```
 
-We can also design circuits with the existing gates (see [this example](./tests/circuits_test.rs)) and then print a wire that you have to see its gates, everything is composed of `+` and `*` gates only!
+We can also design circuits with the existing gates (see [this example](./tests/circuits_test.rs)) and then print a wire's lavel to see its gates, everything is composed of `+` and `*` only!
 
 ```py
 # for equal wires a, b in a field of order 97
