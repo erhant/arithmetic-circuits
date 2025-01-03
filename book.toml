@@ -1,0 +1,24 @@
+[book]
+authors = ["erhant"]
+language = "en"
+multilingual = false
+src = "docs"
+title = "Arithmetic Circuits"
+
+# uses KaTeX instead of MathJax, much better interop
+[preprocessor.katex]
+after = ["links"]
+
+# converts mermaid drawings to SVG
+[preprocessor.mermaid]
+command = "mdbook-mermaid"
+
+[output]
+
+[output.html]
+additional-css = ["./docs/html/mermaid-svg.css"]
+additional-js = ["./docs/html/mermaid.min.js", "./docs/html/mermaid-init.js"]
+git-repository-url = "https://github.com/erhant/arithmetic-circuits"
+git-repository-icon = "fa-github"
+default-theme = "rust"
+preferred-dark-theme = "navy"

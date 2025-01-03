@@ -1,2 +1,6 @@
 # allow markdown to be detected
 *.md linguist-detectable
+
+# ignore css and html files
+*.css linguist-vendored
+*.js linguist-vendored

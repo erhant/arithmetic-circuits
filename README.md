@@ -17,6 +17,12 @@ We have lecture notes as follows:
 5. [Quadratic Arithmetic Programs](./docs/5-qap.md)
 6. [Designing Circuits](./docs/6-circuits.md)
 
+If you have `mdbook` installed with Mermaid preprocessor, you can also open this in a book via:
+
+```sh
+mdbook serve --open
+```
+
 ## Implementations
 
 We also have some pieces of code:
